@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 import data from "../data/content.json"
 
@@ -8,17 +8,41 @@ import SEO from "../components/seo"
 
 import Button from "../components/button"
 
-const segments = [data.who, data.what, data.wow]
+import randomize from "../utils/randomize"
 
 const IndexPage = () => {
+  const [segments, genSegments] = useState([
+    randomize(data.who),
+    randomize(data.what),
+    randomize(data.wow),
+  ])
+
+  const generate = e => {
+    // e.preventDefault()
+    console.log("click")
+    genSegments([
+      randomize(data.who),
+      randomize(data.what),
+      randomize(data.wow),
+    ])
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
       <h1>Hill generator</h1>
       {segments.map((segment, index) => {
-        return <Segment key={index} type={segment} content={segments[index]} />
+        console.log(segments[index])
+        return (
+          <Segment
+            key={segments[index]}
+            type={segment}
+            content={segments[index]}
+          />
+        )
       })}
-      <Button text={"Generate"} />
+      {segments[0]}
+      <Button text={"Generate"} action={generate} />
     </Layout>
   )
 }
