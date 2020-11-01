@@ -1,22 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import data from "../data/content.json"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Segment from "../components/segment"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import Button from "../components/button"
+
+const segments = [data.who, data.what, data.wow]
+
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <h1>Hill generator</h1>
+      {segments.map((segment, index) => {
+        return <Segment key={index} type={segment} content={segments[index]} />
+      })}
+      <Button text={"Generate"} />
+    </Layout>
+  )
+}
 
 export default IndexPage
