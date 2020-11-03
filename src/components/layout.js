@@ -9,6 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { Fade } from "react-reveal"
+
 import Header from "./header"
 import "../assets/scss/main.scss"
 
@@ -32,7 +34,30 @@ const Layout = ({ children }) => {
           marginTop: `2rem`,
         }}
       >
-        Footer
+        <div className={"footer--content"}>
+          <div className={"link-section"}>
+            <a
+              href={
+                "https://www.ibm.com/design/thinking/page/framework/keys/hills"
+              }
+              rel={"noreferrer"}
+              target={"_blank"}
+            >
+              <Fade left distance={"6px"} delay={750}>
+                What the hill is this?
+              </Fade>
+            </a>
+            <a
+              href={"https://www.dpip.dev/"}
+              rel={"noreferrer"}
+              target={"_blank"}
+            >
+              <Fade left distance={"6px"} delay={1000}>
+                Who the hill made this?
+              </Fade>
+            </a>
+          </div>
+        </div>
       </footer>
     </>
   )

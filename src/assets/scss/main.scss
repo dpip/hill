@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -21,6 +21,8 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  height: 100vh;
+  position: relative;
 }
 article,
 aside,
@@ -600,21 +602,25 @@ pre tt:after {
 }
 
 main {
-  position: relative;
   margin: 0 auto;
   width: 100%;
-  min-height: 100vh;
-  padding: 0px 150px;
+  padding: 50px 250px;
   display: flex;
   justify-content: center;
+  height: auto;
 }
 
-header {
-  background: $yellow;
-
+header,
+footer {
+  background: inherit;
+  padding: 0px 250px;
   .header--content {
     margin: 0 auto;
-    padding: 1.45rem 1.0875rem;
+    padding: 2.45rem 0rem;
+  }
+  .footer--content {
+    margin: 0 auto;
+    padding: 1.45rem 0rem;
   }
   h1 {
     a {
@@ -623,19 +629,35 @@ header {
     }
   }
 }
+footer {
+  position: absolute;
+  bottom: 0;
+}
 .container {
   width: 100%;
 }
-.segment-wrap {
-  display: flex;
-  justify-content: flex-start;
-  .segment {
-    margin-left: 5px;
-  }
-}
+
 .link-section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    color: $blue;
+    transition: 0.25s ease-in-out;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  header,
+  footer,
+  main {
+    background: inherit;
+    padding: 0px 30px;
+  }
 }

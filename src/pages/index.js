@@ -39,6 +39,11 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div className={"container"}>
+        <h1>
+          <span></span>
+          <span></span>
+          <span></span>
+        </h1>
         <div className={"segment-wrap"}>
           {segments.map((segment, index) => {
             console.log(Object.keys(data)[index])
@@ -55,24 +60,6 @@ const IndexPage = () => {
           })}
         </div>
         <Button text={"Generate"} action={generate} active={active} />
-        <div className={"link-section"}>
-          <a
-            href={
-              "https://www.ibm.com/design/thinking/page/framework/keys/hills"
-            }
-            rel={"noreferrer"}
-            target={"_blank"}
-          >
-            What the hill is a hill?
-          </a>
-          <a
-            href={"https://www.dpip.dev/"}
-            rel={"noreferrer"}
-            target={"_blank"}
-          >
-            Who made this?
-          </a>
-        </div>
       </div>
     </Layout>
   )
