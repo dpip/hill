@@ -48,7 +48,6 @@ const IndexPage = () => {
           {segments.map((segment, index) => {
             console.log(Object.keys(data)[index])
             let time = Number(index + "99" - 99)
-            console.table("segment and index", segment, index, time)
             return (
               <Segment
                 key={segments[index]}
