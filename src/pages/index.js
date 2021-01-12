@@ -39,11 +39,6 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div className={"container"}>
-        <h1>
-          <span></span>
-          <span></span>
-          <span></span>
-        </h1>
         <div className={"segment-wrap"}>
           {segments.map((segment, index) => {
             console.log(Object.keys(data)[index])
